@@ -11,6 +11,10 @@ var fullQuery = {
   "query": query
 }
 
+if (arguments.length > 1) {
+  fullQuery.variables = readParam(arguments[1]);
+}
+
 var mediaType = MediaType.parse("application/graphql");
 var body = RequestBody.create(mediaType, fullQuery.toString());
 
