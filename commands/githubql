@@ -1,0 +1,23 @@
+#!/usr/bin/env okapi -m
+
+load("classpath:oksocial.js");
+
+var MediaType = Java.type('okhttp3.MediaType');
+var RequestBody = Java.type('okhttp3.RequestBody');
+
+var query = readParam(arguments[0])
+
+var fullQuery = {
+  "query": query
+}
+
+var mediaType = MediaType.parse("application/graphql");
+var body = RequestBody.create(mediaType, fullQuery.toString());
+
+var request = requestBuilder
+  .url("https://api.github.com/graphql")
+  .method("POST", body)
+  .build();
+
+request
+
