@@ -1,2 +1,2 @@
-# abitsheet
-Sheetsu API Tools
+# githubql
+Github API Tools

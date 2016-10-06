@@ -11,7 +11,7 @@
       <scope>runtime</scope>
       <includes>
         <include>
-          com.baulsupp:abitsheetsu
+          com.baulsupp:githubql
         </include>
       </includes>
     </dependencySet>
