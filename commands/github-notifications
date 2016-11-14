@@ -1,0 +1,20 @@
+#!/usr/bin/env okshell
+
+var notifications = query("https://api.github.com/notifications?all=true");
+
+// http://fiddle.jshell.net/4mHW9/52/light/
+String.prototype.padRight = function(l,c) {
+  if (this.length > l) {
+    return this.substring(0, l);
+  } else {
+    return this+Array(l-this.length+1).join(c||" ")
+  }
+};
+
+notifications.forEach(function(notification) {
+  var unread = notification.unread;
+  var title = notification.subject.title;
+  var url = notification.subject.url;
+
+  print((unread ? "*" : " ") + "\t" + title.padRight(40) + "\t" + url);
+});
